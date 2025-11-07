@@ -1,0 +1,32 @@
+h2 {
+    margin-bottom: 5px;
+}
+
+#title{
+    text-align: center;
+}
+
+.gridContainer{
+    border: 3px solid blue;
+    width: 50vw;
+    height: 40vh;
+}
+
+#mainBody{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+#left {
+    flex: 1 3 0;
+    margin: 0 1em;
+}
+
+#left .gridModifier,
+#left .colorModifier{
+    margin-left: 5vw;
+}
+
+#right{
+    flex: 3 1 0;
+}
