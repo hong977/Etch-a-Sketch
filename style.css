@@ -8,8 +8,11 @@ h2 {
 
 #gridContainer{
     border: 3px solid blue;
-    width: 50vw;
-    height: 40vh;
+    width: 40vw;
+    height: 40vw;
+
+    display:flex;
+    flex-wrap: wrap;
 }
 
 #mainBody{

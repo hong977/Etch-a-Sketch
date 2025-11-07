@@ -4,8 +4,16 @@
 // User can choose their own grid size. Set the limit to 100.
 // E.g. When user type/select 20, the grid will become 20x20, without changing the total pixel used.
 
+// Query Selectors
 const gridContainer = document.querySelector("#gridContainer");
+console.log(gridContainer);
 
+
+// Variables
+let gridContainerWidth = "40vw";
+
+
+// Styles
 
 /*
 
