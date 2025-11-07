@@ -10,19 +10,24 @@
     <h1 id="title">Etch-a-Sketch</h1>
     <section id="mainBody">
         <section id="left">
-            <h2>Grid</h2>
-            <input type="number" min="1" max="100" placeholder="e.g. 32">
-            <button>Apply</button>
-            <h2>Color</h2>
-            <select>
-                <option>Red</option>
-                <option>Black</option>
-                <option>Blue</option>
-            </select>
+            <div class="gridModifier">
+                <h2>Grid</h2>
+                <input type="number" min="1" max="100" placeholder="e.g. 32">
+                <button>Apply</button>
+            </div>
+
+            <div class="colorModifier">
+                <h2>Color</h2>
+                <select>
+                    <option>Red</option>
+                    <option>Black</option>
+                    <option>Blue</option>
+                </select>
+            </div>
         </section>
 
         <section id="right">
-            <div class="gridContainer">
+            <div id="gridContainer">
                 <!-- Create a 16x16 grid of square divs using js
                 Use Flexbox to make these divs to appear as 16x16 grid.
                 When clicked, change the div color.
