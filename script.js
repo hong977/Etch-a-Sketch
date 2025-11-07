@@ -10,10 +10,24 @@ console.log(gridContainer);
 
 
 // Variables
-let gridContainerWidth = "40vw";
+let gridContainerWidth = (0.4*window.innerWidth);
 
 
 // Styles
+
+
+// Logic
+let gridSize = Math.pow(16,2); // 16x16
+let gridWidth =  (gridContainerWidth/16) + "px";
+
+for (let i = 0; i < gridSize; i++){
+    let gridDiv = document.createElement("div");
+    gridDiv.style.width = gridWidth;
+    gridDiv.style.height = gridWidth;
+    gridDiv.style.outline = "1px solid green";
+    gridDiv.style.flex = "1 1 auto";
+    gridContainer.appendChild(gridDiv);
+}
 
 /*
 
