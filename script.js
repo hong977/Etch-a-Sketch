@@ -1,13 +1,8 @@
-// Create a 16x16 grid of square divs using js
-// Use Flexbox to make these divs to appear as 16x16 grid.
-// When clicked, change the div color.
-// User can choose their own grid size. Set the limit to 100.
-// E.g. When user type/select 20, the grid will become 20x20, without changing the total pixel used.
-
 // Query Selectors
 const gridContainer = document.querySelector("#gridContainer");
 const inputBox = document.querySelector("#sizeInput");
 const applyButton = document.querySelector("#applyButton");
+const resetButton = document.querySelector("#resetButton");
 
 // Custom Events
 const drawGrid = new Event("newInput");
@@ -15,13 +10,12 @@ const drawGrid = new Event("newInput");
 // Variables
 let mouseDown;
 let userInput = 16;
-document.dispatchEvent(drawGrid);
 let gridContainerWidth = (0.4*window.innerWidth);
-
+createGrid(userInput);
 
 // Logic
 document.addEventListener("dragstart", (e) => {
-    e.preventDefault(); // This will disable dragging on any element
+    e.preventDefault(); 
 });
 
 inputBox.addEventListener("keydown", (e) => {
@@ -40,9 +34,14 @@ applyButton.addEventListener("click", () => {
 
 document.addEventListener("newInput", (e) => {
     createGrid(userInput);
-    console.log("Event received");
 });
 document.dispatchEvent(drawGrid);
+
+resetButton.addEventListener("click", () => {
+    document.querySelectorAll(".gridDivs").forEach( (div) => {
+        div.style.backgroundColor = "white";
+    })
+});
 
 
 // Functions
