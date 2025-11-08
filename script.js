@@ -13,15 +13,17 @@ const applyButton = document.querySelector("#applyButton");
 const drawGrid = new Event("newInput");
 
 // Variables
+let mouseDown;
 let userInput = 16;
 document.dispatchEvent(drawGrid);
 let gridContainerWidth = (0.4*window.innerWidth);
 
 
-// Styles
-
-
 // Logic
+document.addEventListener("dragstart", (e) => {
+    e.preventDefault(); // This will disable dragging on any element
+});
+
 inputBox.addEventListener("keydown", (e) => {
     if (e.key == "Enter"){
         userInput = inputBox.value;
@@ -60,21 +62,37 @@ function createGrid(gridSize) {
             let gridDiv = document.createElement("div");
             gridDiv.style.outline = "1px solid green";
             gridDiv.style.flex = `1 1 ${gridWidth}`;
+            gridDiv.classList.add("gridDivs");
+            colorWhenClicked(gridDiv);
             divRow.appendChild(gridDiv);
         }
         gridContainer.appendChild(divRow);
     }
 }
 
+function colorWhenClicked (element){
+    element.addEventListener("mousedown", function(){
+        color(element,"black")
+        mouseDown = true;
+    });
+
+    element.addEventListener("mouseup", () => {
+        mouseDown = false;
+    })
+
+    element.addEventListener("mousemove", function(e){
+        if (mouseDown){
+            color(element,"black");
+        }
+    })
+}
+
+function color (element, color){
+    element.style.backgroundColor = color;
+}
+
+
 /*
-
-Get an input,n from user.
-Adjust gridContainer size accordingly.
-Loop n times:
-    Create a div with same class.
-    Append div to gridContainer.
-    Add eventListener, when clicked, change colour.
-
 
 When reset button is clicked:,
 When grid size is changed:
