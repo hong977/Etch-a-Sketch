@@ -28,13 +28,18 @@ h2 {
 
 #left .gridModifier,
 #left .colorModifier,
-#left > button{
+#resetButton{
     margin-left: 5vw;
 }
 
-#left > button{
+#sizeInput {
+    margin-bottom: 1em;
+}
+
+#resetButton{
     margin-top: 1em;
 }
+
 
 #right{
     flex: 3 1 0;
