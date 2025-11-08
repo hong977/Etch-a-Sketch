@@ -6,7 +6,6 @@
 
 // Query Selectors
 const gridContainer = document.querySelector("#gridContainer");
-console.log(gridContainer);
 
 
 // Variables
@@ -17,16 +16,21 @@ let gridContainerWidth = (0.4*window.innerWidth);
 
 
 // Logic
-let gridSize = Math.pow(16,2); // 16x16
+let gridSize = 16; // 16x16
 let gridWidth =  (gridContainerWidth/16) + "px";
 
 for (let i = 0; i < gridSize; i++){
-    let gridDiv = document.createElement("div");
-    gridDiv.style.width = gridWidth;
-    gridDiv.style.height = gridWidth;
-    gridDiv.style.outline = "1px solid green";
-    gridDiv.style.flex = "1 1 auto";
-    gridContainer.appendChild(gridDiv);
+    let divRow = document.createElement("div");
+    divRow.style.outline = "1px solid black";
+    divRow.style.flex = `1 1 ${gridWidth}`;
+    divRow.style.display = "flex";
+    for (let j = 0; j < gridSize; j++){
+        let gridDiv = document.createElement("div");
+        gridDiv.style.outline = "1px solid green";
+        gridDiv.style.flex = `1 1 ${gridWidth}`;
+        divRow.appendChild(gridDiv);
+    }
+    gridContainer.appendChild(divRow);
 }
 
 /*
