@@ -72,16 +72,16 @@ function createGrid(gridSize) {
             let gridDiv = document.createElement("div");
             gridDiv.style.flex = `1 1 ${gridWidth}`;
             gridDiv.classList.add("gridDivs");
-            colorWhenClicked(gridDiv, selectedColor);
+            colorWhenClicked(gridDiv);
             divRow.appendChild(gridDiv);
         }
         gridContainer.appendChild(divRow);
     }
 }
 
-function colorWhenClicked (element, selectedColor){
+function colorWhenClicked (element){
     element.addEventListener("mousedown", function(){
-        color(element, selectedColor)
+        color(element)
         mouseDown = true;
     });
 
@@ -91,12 +91,12 @@ function colorWhenClicked (element, selectedColor){
 
     element.addEventListener("mousemove", function(e){
         if (mouseDown){
-            color(element,selectedColor);
+            color(element);
         }
     })
 }
 
-function color (element, color){
-    element.style.backgroundColor = color;
+function color (element){
+    element.style.backgroundColor = selectedColor;
 }
 
